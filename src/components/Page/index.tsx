@@ -1,4 +1,6 @@
 import React from "react";
+
+import { ModelsWrapper, ModelSection } from "../../Model/index";
 import DefaultOverlayContent from "../DefaultOverlayContent";
 
 import { Container } from "./styles";
@@ -8,15 +10,27 @@ const Page: React.FC = () => {
     <Container>
       <ModelsWrapper>
         <div>
-          <ModelSection
-            modelName="Model One"
-            overlayNode={
-              <DefaultOverlayContent
-                label="Model One"
-                description="Order Online for Delivery"
-              />
-            }
-          />
+          {[
+            "Model One",
+            "Model Two",
+            "Model Three",
+            "Model Four",
+            "Model Five",
+            "Model Six",
+            "Model Seven",
+          ].map((modelName) => (
+            <ModelSection
+              key={modelName}
+              className="colored"
+              modelName={modelName}
+              overlayNode={
+                <DefaultOverlayContent
+                  label="Model One"
+                  description="Order Online for Delivery"
+                />
+              }
+            />
+          ))}
         </div>
       </ModelsWrapper>
     </Container>
